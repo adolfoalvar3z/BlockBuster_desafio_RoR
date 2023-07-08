@@ -1,0 +1,45 @@
+<p style="color: green"><%= notice %></p>
+<div class="container">
+  <h1>Peliculas</h1>
+  <p>
+    <%= link_to "Nueva Pelicula", new_movie_path, class: "btn btn-success btn-sm" %>
+  </p>
+  <div class="table-responsive">
+    <table class="table table-bordered text-center">
+      <thead>
+        <tr>
+          <th scope="col">ID PELICULA</th>
+          <th scope="col">PELICULA</th>
+          <th scope="col">ARRENDADORES</th>
+          <th scope="col">ACCIONES</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @movies.each do |movie| %>
+          <tr class="">
+            <td scope="row"><%= movie.id %></td>
+            <td><%= movie.name %></td>
+            <td>
+              <% if movie.clients.present? %>
+                <ul>
+                  <% movie.clients.each do |cliente| %>
+                    <li><%= cliente.name %></li>
+                  <% end %>
+                </ul>
+                <% else %>
+                  Nadie aún ha arrendado esta pelicula
+                <% end %>
+            </td>
+            <td>
+              <div class="btn-group">
+                <%= link_to "Ver esta pelicula", movie, class: "btn btn-primary btn-sm" %>
+                <%= link_to "Editar esta pelicula", edit_movie_path(movie), class: "btn btn-warning btn-sm" %>
+                <%= button_to "Borrar esta pelicula", movie, method: :delete, class: "btn btn-danger btn-sm" %>
+              </div>
+            </td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+</div>

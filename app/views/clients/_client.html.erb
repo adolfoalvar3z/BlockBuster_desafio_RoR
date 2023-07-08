@@ -1,0 +1,21 @@
+<div id="<%= dom_id client %>">
+  <tr>
+    <th scope="row"><%= client.id %></th>
+    <td><%= client.name %></td>
+    <td><%= client.age %></td>
+            <% if client.movie.nil?%>
+            <td scope="col">No posee pelicula en arriendo</td>
+            <% else %>
+            <td scope="col"><%= client.movie.name %></td>
+            <% end %>
+    <td>
+    <div class="btn-group">
+    <td><%= link_to "Ver este cliente", client, class: "btn btn-primary btn-sm" %></td>
+    <td><%= link_to "Editar este cliente", edit_client_path(client), class: "btn btn-warning btn-sm" %></td>
+    <td><%= button_to "Destroy this client", @client, method: :delete, class: "btn btn-danger btn-sm" %></td>
+</div>
+    </td>
+
+  </tr>
+</div>
+
