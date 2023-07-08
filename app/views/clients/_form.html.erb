@@ -13,20 +13,20 @@
 
   <div>
     <%= form.label :name, style: "display: block" %>
-    <%= form.text_field :name %>
+    <%= form.text_field :name, class: "form-control" %>
   </div>
 
   <div>
     <%= form.label :age, style: "display: block" %>
-    <%= form.text_field :age %>
+    <%= form.text_field :age, class: "form-control" %>
   </div>
 
   <div>
     <%= form.label :movie_id, style: "display: block" %>
-    <%= form.select :movie_id, options_for_select(@movies) %>
+    <%= form.select :movie_id, options_for_select(@movies), class: "form-select" %>
   </div>
 
   <div>
-    <%= form.submit %>
+    <%= form.submit "Enviar", class: "btn btn-primary" %>
   </div>
 <% end %>

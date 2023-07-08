@@ -1,9 +1,17 @@
-
-  <div class="col-4 py-2">
-    <div class="card">
-      <div class="card-body">
-        <h5 class="card-title"><%= movie.name %></h5>
-        <%= link_to "Show this movie", movie, class: "btn btn-primary" %>
-      </div>
+<div id="<%= dom_id movie %>">
+  <div class="card">
+    <div class="card-body">
+      <h4 class="card-title">Nombre Pelicula: <%= movie.name %></h4>
+      <p class="card-text">
+        Arrendadores:
+        <% movie.clients.each do |cliente| %>
+          <li><%= cliente.name %></li>
+        <% end %>
+      </p>
     </div>
   </div>
+  <div class="btn-group">
+    <td><%= link_to "Editar esta pelicula", edit_movie_path(movie), class: "btn btn-warning btn-sm" %></td>
+    <td><%= button_to "Borrar esta pelicula", @movie, method: :delete, class: "btn btn-danger btn-sm" %></td>
+  </div>
+</div>

@@ -13,16 +13,16 @@
 
   <div>
     <%= form.label :name, style: "display: block" %>
-    <%= form.text_field :name %>
+    <%= form.text_field :name, class: "form-control" %>
   </div>
 <hr>
 <h3>Cliente</h3>
 <div>
  <%= form.fields_for :clients do |client| %>
  <%= client.label :name, style: "display: block" %>
- <%= client.text_field :name %>
+ <%= client.text_field :name, class: "form-control" %>
  <%= client.label :age, style: "display: block" %>
- <%= client.text_field :age %>
+ <%= client.text_field :age, class: "form-control" %>
  <br>
  <%= client.check_box :_destroy %>
  <%= client.label :_destroy, "Borrar" %>
@@ -30,6 +30,6 @@
 </div>
 
   <div>
-    <%= form.submit %>
+    <%= form.submit "Enviar", class: "btn btn-primary" %>
   </div>
 <% end %>
